@@ -20,7 +20,7 @@ from flask import jsonify
 @app.route("/pokemons") 
 def colors(): 
     logger.warning("Warning, you are accessing /pokemons")
-    return jsonify(["Bulbasaur", "Squirtle", "Charmander", "Pikachu"]) 
+    return jsonify(["Bulbasaur", "Squirtle", "Charmander", "Pikachu", "Onix"]) 
 
 if __name__ == "__main__": 
     app.run(host="0.0.0.0", port=5000)
