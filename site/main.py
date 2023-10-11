@@ -19,7 +19,7 @@ def hello():
 from flask import jsonify 
 @app.route("/pokemons") 
 def colors(): 
-    logger.warning("Warning, you are accessing /colors")
+    logger.warning("Warning, you are accessing /pokemons")
     return jsonify(["Bulbasaur", "Squirtle", "Charmander", "Pikachu"]) 
 
 if __name__ == "__main__": 
