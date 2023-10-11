@@ -1,0 +1,25 @@
+---
+- name: Deploy WebServer
+  hosts:
+    - webserver
+
+  gather_facts: true
+  become: true
+
+  tasks:
+    - name: upload site directory
+      synchronize: src=site dest=/tmp
+
+    - name: build the image
+      command: docker image build -t python-sample -f /tmp/site/Dockerfile /tmp/site/.
+      
+    - name: Run python-sample container
+      docker_container:
+        name: python-sample
+        image: python-sample
+        state: started
+        ports: 
+          - "5000:5000"
+        volumes:
+          - /tmp/site/.:/app
+
